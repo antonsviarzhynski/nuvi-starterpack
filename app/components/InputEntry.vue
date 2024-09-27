@@ -1,10 +1,12 @@
 <script setup lang="ts">
 const name = ref('')
 
+const localePath = useLocalePath()
 const router = useRouter()
 function go() {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
+  if (name.value) {
+    router.push(localePath(`/hi/${encodeURIComponent(name.value)}`))
+  }
 }
 </script>
 
@@ -13,7 +15,7 @@ function go() {
     <input
       id="input"
       v-model="name"
-      placeholder="What's your name?"
+      :placeholder="$t('messages.whatsYourName')"
       type="text" autocomplete="off"
       p="x-4 y-2" m="t-5" w="250px"
       text="center" bg="transparent"
@@ -27,7 +29,7 @@ function go() {
         :disabled="!name"
         @click="go"
       >
-        GO
+        {{ $t('messages.go') }}
       </button>
     </div>
   </div>

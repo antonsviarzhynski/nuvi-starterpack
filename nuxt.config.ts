@@ -1,5 +1,7 @@
+// noinspection ES6PreferShortImport
+
 import { pwa } from './app/config/pwa'
-import { appDescription } from './app/constants/index'
+import { appDescription } from './app/constants/app'
 
 export default defineNuxtConfig({
   modules: [
@@ -9,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     '@nuxt/eslint',
+    '@nuxtjs/i18n',
   ],
 
   experimental: {
@@ -80,4 +83,30 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-08-14',
+
+  i18n: {
+    vueI18n: './i18n.config.ts',
+    detectBrowserLanguage: false,
+    lazy: true,
+    langDir: 'lang',
+    strategy: 'prefix',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        iso: 'en-US',
+        file: 'en.ts', // add file name for each locale
+      },
+      {
+        code: 'pl',
+        name: 'Polish',
+        iso: 'pl-PL',
+        file: 'pl.ts',
+      },
+    ],
+  },
+
+  routeRules: {
+    '/': { redirect: '/en' },
+  },
 })

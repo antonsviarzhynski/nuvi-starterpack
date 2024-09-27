@@ -1,7 +1,8 @@
 <template>
-  <div text="xl gray4" m-5 flex="~ gap3" justify-center>
-    <NuxtLink i-carbon-campsite to="/" />
-    <a i-carbon-logo-github href="https://github.com/antfu/vitesse-nuxt3" target="_blank" />
+  <div text="xl gray4" flex="~ gap3" mt-5 items-center justify-center>
+    <LocLink i-carbon-campsite to="/" />
     <DarkToggle />
+    <LangSwitcher />
+    <LocLink i-carbon-campsite to="/test" />
   </div>
 </template>

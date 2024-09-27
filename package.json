@@ -35,5 +35,8 @@
   },
   "resolutions": {
     "@typescript-eslint/utils": "^8.6.0"
+  },
+  "dependencies": {
+    "@nuxtjs/i18n": "^8.5.5"
   }
 }

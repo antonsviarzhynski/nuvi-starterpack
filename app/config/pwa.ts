@@ -1,6 +1,8 @@
+// noinspection ES6PreferShortImport
+
 import type { ModuleOptions } from '@vite-pwa/nuxt'
 import process from 'node:process'
-import { appDescription, appName } from '../constants/index'
+import { appDescription, appName } from '../constants/app'
 
 const scope = '/'
 
