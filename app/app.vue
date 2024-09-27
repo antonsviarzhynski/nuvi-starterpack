@@ -4,12 +4,22 @@ import { appName } from '~/constants/app'
 useHead({
   title: appName,
 })
+
+const head = useLocaleHead({
+  addDirAttribute: true, // Adds dir
+  addSeoAttributes: true, // Adds lang
+})
+const htmlAttrs = computed(() => head.value.htmlAttrs!)
 </script>
 
 <template>
   <VitePwaManifest />
   <NuxtLayout>
-    <NuxtPage />
+    <Html :lang="htmlAttrs.lang" :dir="htmlAttrs.dir">
+      <Body>
+        <NuxtPage />
+      </Body>
+    </Html>
   </NuxtLayout>
 </template>
 

@@ -27,9 +27,9 @@ definePageMeta({
         <span op-50>Also as known as:</span>
         <ul>
           <li v-for="otherName in user.otherNames" :key="otherName">
-            <router-link :to="`/hi/${otherName}`" replace>
+            <LocLink :to="`/hi/${otherName}`" replace>
               {{ otherName }}
-            </router-link>
+            </LocLink>
           </li>
         </ul>
       </div>
@@ -38,12 +38,12 @@ definePageMeta({
     <Counter />
 
     <div>
-      <NuxtLink
+      <LocLink
         class="m-3 text-sm btn"
         to="/"
       >
         Back
-      </NuxtLink>
+      </LocLink>
     </div>
   </div>
 </template>
