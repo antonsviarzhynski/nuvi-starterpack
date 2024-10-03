@@ -2,12 +2,14 @@
 import { appName } from '~/constants/app'
 
 useHead({
-  title: appName,
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${appName} | ${titleChunk}` : appName
+  },
 })
 
 const head = useLocaleHead({
-  addDirAttribute: true, // Adds dir
-  addSeoAttributes: true, // Adds lang
+  addDirAttribute: true, // adds dir
+  addSeoAttributes: true, // adds lang
 })
 const htmlAttrs = computed(() => head.value.htmlAttrs!)
 </script>

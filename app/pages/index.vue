@@ -1,9 +1,19 @@
 <script setup lang="ts">
+import { useQuery } from '@tanstack/vue-query'
+import usePostsAPI from '~/api/posts/usePostsAPI'
+
 definePageMeta({
   layout: 'home',
 })
 
 const online = useOnline()
+const { getPostsList } = usePostsAPI()
+
+const { data } = useQuery({
+  queryKey: ['postsList'],
+  queryFn: getPostsList,
+})
+console.log(data)
 </script>
 
 <template>

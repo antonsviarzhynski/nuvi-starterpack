@@ -10,6 +10,7 @@ watchEffect(() => {
 definePageMeta({
   layout: 'home',
 })
+useSeoMeta({ title: name })
 </script>
 
 <template>
