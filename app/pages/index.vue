@@ -9,11 +9,11 @@ definePageMeta({
 const online = useOnline()
 const { getPostsList } = usePostsAPI()
 
-const { data } = useQuery({
+const { data: posts = [] } = useQuery({
   queryKey: ['postsList'],
   queryFn: getPostsList,
 })
-console.log(data)
+console.log(posts)
 </script>
 
 <template>

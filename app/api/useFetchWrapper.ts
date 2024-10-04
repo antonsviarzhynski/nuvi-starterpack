@@ -28,11 +28,11 @@ function useFetchWrapper() {
         requestHeaders.body = JSON.stringify(body)
       }
       const response = await fetch(url, requestHeaders)
-      return await handleResponse(response)
+      return await handleAPIResponse(response)
     }
   }
 
-  async function handleResponse(response: Response) {
+  async function handleAPIResponse(response: Response) {
     const text = await response.text()
 
     if (!response.ok) {
@@ -40,7 +40,7 @@ function useFetchWrapper() {
       return Promise.reject(response.status)
     }
 
-    return text
+    return JSON.parse(text)
   }
 }
 
